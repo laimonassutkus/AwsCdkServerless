@@ -10,7 +10,7 @@ class Layer(LambdaLayer):
         super().__init__(
             scope=scope,
             name='ExampleLayer',
-            source_path=f'{layer_root}/source',
+            source_path=layer_root,
             code_runtimes=[
                 Runtime.PYTHON_3_9
             ],
