@@ -1,24 +1,57 @@
-from aws_cdk import (
-    core as cdk
-    # aws_sqs as sqs,
-)
+from aws_cdk.aws_lambda import Function, Code, Runtime
+from aws_cdk.core import Stack, Construct
 
-# For consistency with other languages, `cdk` is the preferred import name for
-# the CDK's core module.  The following line also imports it as `core` for use
-# with examples from the CDK Developer's Guide, which are in the process of
-# being updated to use `cdk`.  You may delete this import if you don't need it.
-from aws_cdk import core
+from aws_cdk_serverless.crud import crud_root
+from aws_cdk_serverless.layer.layer import Layer
 
 
-class AwsCdkServerlessStack(cdk.Stack):
+class AwsCdkServerlessStack(Stack):
 
-    def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # The code that defines your stack goes here
+        layer = Layer(self)
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "AwsCdkServerlessQueue",
-        #     visibility_timeout=cdk.Duration.seconds(300),
-        # )
+        # Create function.
+        Function(
+            scope=self,
+            id='Create',
+            function_name='Create',
+            code=Code.from_asset(f'{crud_root}/create'),
+            runtime=Runtime.PYTHON_3_9,
+            handler='index.handler',
+            layers=[layer]
+        )
+
+        # Read function.
+        Function(
+            scope=self,
+            id='Read',
+            function_name='Read',
+            code=Code.from_asset(f'{crud_root}/read'),
+            runtime=Runtime.PYTHON_3_9,
+            handler='index.handler',
+            layers=[layer]
+        )
+
+        # Update function.
+        Function(
+            scope=self,
+            id='Update',
+            function_name='Update',
+            code=Code.from_asset(f'{crud_root}/update'),
+            runtime=Runtime.PYTHON_3_9,
+            handler='index.handler',
+            layers=[layer]
+        )
+
+        # Delete function.
+        Function(
+            scope=self,
+            id='Delete',
+            function_name='Delete',
+            code=Code.from_asset(f'{crud_root}/delete'),
+            runtime=Runtime.PYTHON_3_9,
+            handler='index.handler',
+            layers=[layer]
+        )
