@@ -8,8 +8,17 @@ class Infrastructure(TestingStack):
     def __init__(self, scope: Construct) -> None:
         super().__init__(scope=scope)
 
-        AwsCdkServerlessStack(
+        stack = AwsCdkServerlessStack(
             scope,
             construct_id=self.global_prefix() + 'TestingStack',
             stack_name=self.global_prefix() + 'TestingStack'
         )
+
+        self.add_output(
+            key='ApiUrl',
+            value=stack.api.full_url
+        )
+
+    @staticmethod
+    def api_url() -> str:
+        return Infrastructure.get_output('ApiUrl')

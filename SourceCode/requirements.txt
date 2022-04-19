@@ -8,6 +8,7 @@ b-aws-testing-framework==0.6.0
 # 3rd party other dependencies
 
 pynamodb==5.2.1
+requests==2.27.1
 
 # AWS CDK dependencies
 
