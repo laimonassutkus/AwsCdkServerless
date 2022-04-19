@@ -1,16 +1,21 @@
-# Biomapas dependencies
+# Biomapas dependencies.
 
 b-cfn-lambda-layer==1.1.3
 b-cfn-api-v2==1.1.1
 b-cfn-lambda-integration==0.0.8
 b-aws-testing-framework==0.6.0
 
-# 3rd party other dependencies
+# 3rd party other dependencies.
 
 pynamodb==5.2.1
 requests==2.27.1
 
-# AWS CDK dependencies
+# Bug fix of Github actions.
+
+attrs==21.4.0
+cattrs==22.1.0
+
+# AWS CDK dependencies.
 
 aws-cdk.core==1.140.0
 aws-cdk.assets==1.140.0
