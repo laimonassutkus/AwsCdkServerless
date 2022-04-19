@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "e270a1e8-3698-4e3f-99b9-d6adf6a7138c",
+		"name": "CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Murry\",\n    \"age\": 9,\n    \"color\": \"Brown\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://2ugldpgz2a.execute-api.eu-central-1.amazonaws.com/V1/create",
+					"protocol": "https",
+					"host": [
+						"2ugldpgz2a",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"V1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://2ugldpgz2a.execute-api.eu-central-1.amazonaws.com/V1/read?name=Tom",
+					"protocol": "https",
+					"host": [
+						"2ugldpgz2a",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"V1",
+						"read"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tom"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tom\",\n    \"age\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://2ugldpgz2a.execute-api.eu-central-1.amazonaws.com/V1/update",
+					"protocol": "https",
+					"host": [
+						"2ugldpgz2a",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"V1",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tom\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://2ugldpgz2a.execute-api.eu-central-1.amazonaws.com/V1/delete",
+					"protocol": "https",
+					"host": [
+						"2ugldpgz2a",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"V1",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
