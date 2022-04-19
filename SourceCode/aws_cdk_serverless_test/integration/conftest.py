@@ -1,3 +1,4 @@
+import logging
 import os
 
 from b_aws_testing_framework.credentials import Credentials
@@ -10,6 +11,10 @@ MANAGER = TestingManager(Credentials(), CdkToolConfig(CDK_PATH))
 # Override global prefix.
 GLOBAL_PREFIX = os.environ.get('GLOBAL_PREFIX')
 if GLOBAL_PREFIX: MANAGER.set_global_prefix(f'Testing{GLOBAL_PREFIX[:10]}')
+
+
+# Set up logging.
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 
 def pytest_sessionstart(session):
