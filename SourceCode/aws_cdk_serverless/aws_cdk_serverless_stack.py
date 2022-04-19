@@ -1,6 +1,7 @@
 from aws_cdk.aws_lambda import Code
 from aws_cdk.core import Stack, Construct
 
+from aws_cdk_serverless.api import CatApi
 from aws_cdk_serverless.backend import Backend
 from aws_cdk_serverless.crud import crud_root
 from aws_cdk_serverless.layer.layer import Layer
@@ -16,7 +17,7 @@ class AwsCdkServerlessStack(Stack):
         layer = Layer(scope=self)
 
         # Create function.
-        Backend(
+        create = Backend(
             scope=self,
             id='Create',
             function_name='Create',
@@ -26,7 +27,7 @@ class AwsCdkServerlessStack(Stack):
         ).grant_read().grant_write()
 
         # Read function.
-        Backend(
+        read = Backend(
             scope=self,
             id='Read',
             function_name='Read',
@@ -36,7 +37,7 @@ class AwsCdkServerlessStack(Stack):
         ).grant_read()
 
         # Update function.
-        Backend(
+        update = Backend(
             scope=self,
             id='Update',
             function_name='Update',
@@ -46,7 +47,7 @@ class AwsCdkServerlessStack(Stack):
         ).grant_read().grant_write()
 
         # Delete function.
-        Backend(
+        delete = Backend(
             scope=self,
             id='Delete',
             function_name='Delete',
@@ -54,3 +55,12 @@ class AwsCdkServerlessStack(Stack):
             cat_table=table,
             layers=[layer]
         ).grant_read().grant_write()
+
+        # Create the actual API!
+        self.api = CatApi(
+            scope=self,
+            create_backend=create,
+            read_backend=read,
+            update_backend=update,
+            delete_backend=delete
+        )

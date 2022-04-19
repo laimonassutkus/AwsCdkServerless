@@ -1,6 +1,8 @@
 # Biomapas dependencies
 
 b-cfn-lambda-layer==1.1.3
+b-cfn-api-v2==1.1.1
+b-cfn-lambda-integration==0.0.8
 
 # 3rd party other dependencies
 
