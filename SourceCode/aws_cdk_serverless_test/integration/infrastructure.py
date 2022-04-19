@@ -10,8 +10,8 @@ class Infrastructure(TestingStack):
 
         stack = AwsCdkServerlessStack(
             scope,
-            construct_id=self.global_prefix() + 'TestingStack',
-            stack_name=self.global_prefix() + 'TestingStack'
+            construct_id=self.global_prefix() + 'TestingServerlessStack',
+            stack_name=self.global_prefix() + 'TestingServerlessStack'
         )
 
         self.add_output(
