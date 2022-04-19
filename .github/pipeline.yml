@@ -19,7 +19,7 @@ jobs:
       - name: Install
         run: |
           npm install -g aws-cdk@1.x
-          pip install -r requirements.txt
+          pip install -r SourceCode/requirements.txt
 
       - name: TestIntegration
-        run: pytest aws_cdk_serverless_test/integration
+        run: pytest SourceCode/aws_cdk_serverless_test/integration
