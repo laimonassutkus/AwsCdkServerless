@@ -1,5 +1,5 @@
 from aws_cdk.aws_dynamodb import Table, Attribute, AttributeType, TableEncryption
-from aws_cdk.core import Stack
+from aws_cdk.core import Stack, RemovalPolicy
 
 
 class CatTable(Table):
@@ -9,7 +9,8 @@ class CatTable(Table):
             id='CatTable',
             table_name='CatTable',
             partition_key=Attribute(name='name', type=AttributeType.STRING),
-            encryption=TableEncryption.DEFAULT
+            encryption=TableEncryption.DEFAULT,
+            removal_policy=RemovalPolicy.DESTROY
         )
 
     @property
