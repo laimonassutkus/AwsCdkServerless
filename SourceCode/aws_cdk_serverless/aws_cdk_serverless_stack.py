@@ -4,8 +4,8 @@ from aws_cdk.core import Stack, Construct
 from aws_cdk_serverless.api import CatApi
 from aws_cdk_serverless.backend import Backend
 from aws_cdk_serverless.crud import crud_root
-from aws_cdk_serverless.layer.layer import Layer
 from aws_cdk_serverless.table import CatTable
+from aws_cdk_serverless_layer.layer import Layer
 
 
 class AwsCdkServerlessStack(Stack):

@@ -2,7 +2,7 @@ from aws_cdk.aws_lambda import Runtime
 from aws_cdk.core import Stack
 from b_cfn_lambda_layer.lambda_layer import LambdaLayer
 
-from aws_cdk_serverless.layer import layer_root
+from aws_cdk_serverless_layer import layer_root
 
 
 class Layer(LambdaLayer):
