@@ -9,7 +9,7 @@ class Infrastructure(TestingStack):
         super().__init__(scope=scope)
 
         stack = AwsCdkServerlessStack(
-            scope,
+            scope=self,
             construct_id='TestingServerlessStack',
             stack_name='TestingServerlessStack'
         )
