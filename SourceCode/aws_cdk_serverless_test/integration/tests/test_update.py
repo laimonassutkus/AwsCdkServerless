@@ -23,9 +23,9 @@ def test_ENDPOINT_update_WITH_existing_entity_EXPECT_successfuly_update():
 
     assert response.status_code == 201
 
-    response = requests.post(
+    response = requests.get(
         url=f'{url}/read',
-        json={
+        params={
             'name': name,
         }
     )
@@ -38,7 +38,7 @@ def test_ENDPOINT_update_WITH_existing_entity_EXPECT_successfuly_update():
     assert data['age'] == age
     assert data['color'] == color
 
-    response = requests.post(
+    response = requests.put(
         url=f'{url}/update',
         json={
             'name': name,
@@ -48,9 +48,9 @@ def test_ENDPOINT_update_WITH_existing_entity_EXPECT_successfuly_update():
 
     assert response.status_code == 200
 
-    response = requests.post(
+    response = requests.get(
         url=f'{url}/read',
-        json={
+        params={
             'name': name,
         }
     )

@@ -21,7 +21,7 @@ def test_ENDPOINT_delete_WITH_existing_entity_EXPECT_successfuly_deleted():
 
     assert response.status_code == 201
 
-    response = requests.post(
+    response = requests.delete(
         url=f'{url}/delete',
         json={
             'name': name,

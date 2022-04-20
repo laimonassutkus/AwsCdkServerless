@@ -23,9 +23,9 @@ def test_ENDPOINT_read_WITH_existing_entity_EXPECT_successfuly_entity_found():
 
     assert response.status_code == 201
 
-    response = requests.post(
+    response = requests.get(
         url=f'{url}/read',
-        json={
+        params={
             'name': name,
         }
     )

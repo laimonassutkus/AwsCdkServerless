@@ -8,10 +8,6 @@ from b_aws_testing_framework.tools.cdk_testing.testing_manager import TestingMan
 CDK_PATH = os.path.dirname(os.path.abspath(__file__))
 MANAGER = TestingManager(Credentials(), CdkToolConfig(CDK_PATH))
 
-# Override global prefix.
-GLOBAL_PREFIX = os.environ.get('GLOBAL_PREFIX')
-if GLOBAL_PREFIX: MANAGER.set_global_prefix(f'Testing{GLOBAL_PREFIX[:10]}')
-
 
 # Set up logging.
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
