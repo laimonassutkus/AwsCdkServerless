@@ -1,6 +1,8 @@
 
 # Welcome to your CDK Python project!
 
+![Workflow status](https://github.com/laimonassutkus/AwsCdkServerless/actions/workflows/main.yml/badge.svg)
+
 This is a blank project for Python development with CDK.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
