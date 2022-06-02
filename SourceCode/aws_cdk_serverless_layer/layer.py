@@ -1,6 +1,7 @@
 from aws_cdk.aws_lambda import Runtime
 from aws_cdk.core import Stack
 from b_cfn_lambda_layer.lambda_layer import LambdaLayer
+from b_cfn_lambda_layer.package_version import PackageVersion
 
 from aws_cdk_serverless_layer import layer_root
 
@@ -15,8 +16,6 @@ class Layer(LambdaLayer):
                 Runtime.PYTHON_3_9
             ],
             dependencies={
-                # Don't need to specify here, because this dependency
-                # is already in requirements.txt file (in the layer source code).
-                # 'pynamodb': PackageVersion.from_string_version('5.2.1')
+                'pynamodb': PackageVersion.from_string_version('5.2.1')
             }
         )
